@@ -54,7 +54,7 @@
 
     pin.canShowCallout = YES;
     if (annotation == self.mobileMakersAnnotation) {
-        pin.image = [UIImage imageNamed:@"MMLogo"];
+        pin.image = [UIImage imageNamed:@"don_bora"];
     }
     pin.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
