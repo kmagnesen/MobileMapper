@@ -29,11 +29,22 @@
     [self.mapView addAnnotation:self.mobileMakersAnnotation];
 
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:@"The Grand Canyon in Arizona" completionHandler:^(NSArray *placemarks, NSError *error) {
+    [geocoder geocodeAddressString:@"8265 Steepleside Drive, Burr Ridge, IL 60527" completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark *place in placemarks) {
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-            annotation.title = @"Grand Canyon";
-            annotation.subtitle = @"A Really Really Big Hole In The Ground";
+            annotation.title = @"Home";
+            annotation.subtitle = @"Where the heart is";
+            annotation.coordinate = place.location.coordinate;
+            [self.mapView addAnnotation:annotation];
+        }
+    }];
+
+    CLGeocoder *geocoder2 = [[CLGeocoder alloc] init];
+    [geocoder2 geocodeAddressString:@"4923 Woolworth Ave, Omaha, NE 68164" completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *place in placemarks) {
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            annotation.title = @"Home-aha";
+            annotation.subtitle = @"Where the heart is not";
             annotation.coordinate = place.location.coordinate;
             [self.mapView addAnnotation:annotation];
         }
